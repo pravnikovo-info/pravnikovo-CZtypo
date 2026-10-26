@@ -113,11 +113,11 @@ Navíc pro právní texty:
   (`0102310010`): tak je předepisují datové formáty elektronických podání,
   např. vyhláška č. 241/2025 Sb. (PSČ „pětimístné číslo“, „přesně pět
   číslic“) a vyhláška č. 365/2014 Sb. (rodné číslo „ve formátu 8752025403 …
-  (bez lomítka)“), obě měnící vyhlášku č. 418/2001 Sb. Lomítko se odstraní
-  jen u čísla, které je platným rodným číslem; číslo posudku `032300/2026`
-  zůstane. Kdo píše podle instrukce MSp o soudních písemnostech
-  (č. 12/2017-OJD-ORG/36, § 10 odst. 6 uvádí vzor `339 02 Klatovy`), vypne
-  volbu `psc_bez_mezery`.
+  (bez lomítka)“), obě měnící vyhlášku č. 418/2001 Sb. Vyhláška je obecně
+  závazný právní předpis a má přednost před interními akty, jako jsou
+  instrukce ministerstev. Lomítko se odstraní jen u čísla, které je platným
+  rodným číslem; číslo posudku `032300/2026` zůstane. Volbami
+  `psc_bez_mezery` a `rc_bez_lomitka` lze úpravu vypnout.
 
 ## cstypo, nebo typst balíček vlna?
 
