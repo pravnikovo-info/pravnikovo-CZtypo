@@ -8,10 +8,13 @@ markup pro [typst](https://typst.app). Balíček vznikl pro sazbu podání
 advokátní kanceláře, proto zvlášť dobře zná právní texty.
 
 ```bash
-pip install cstypo
+pip install git+https://github.com/pravnikovo-info/cstypo
 ```
 
-Bez závislostí, Python 3.10+.
+Bez závislostí, Python 3.10+. Balíček se jmenuje `pravnikovo-cstypo`,
+modul `cstypo`. Na PyPI je pod jménem `cstypo` jiný, starší projekt
+([yetty/cstypo](https://github.com/yetty/cstypo)); s ním nesouvisí a oba
+najednou do jednoho prostředí neinstalujte.
 
 ## Použití
 

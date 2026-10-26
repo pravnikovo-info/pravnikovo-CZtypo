@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cstypo"
+name = "pravnikovo-cstypo"
 version = "0.1.0"
 description = "Česká typografická pravidla jako kód: nezlomitelné mezery, zápis údajů, výstup pro typst"
 readme = "README.md"
