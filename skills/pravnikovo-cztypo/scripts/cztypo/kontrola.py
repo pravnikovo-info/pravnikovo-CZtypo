@@ -82,6 +82,10 @@ def _nalezy(profil: Profil) -> list[Nalez]:
         out += [Nalez(n.vzor, n.popis, jen_proza=True, mimo_citace=not n.i_v_citaci,
                       mimo_adres=True)
                 for n in nalezy_interpunkce(profil.pomlcky_na_spojovnik)]
+    if profil.kontrola_pomlcka:
+        out.append(Nalez(re.compile(r"(?<=\S) [-–—] (?=\S)"),
+                         "pomlčka ve větě: větu přeformulovat (v doslovné "
+                         "citaci ponechat, případně citaci zkrátit)", jen_proza=True))
     if profil.kontrola_dale_jen:
         out.append(Nalez(re.compile(r"\bdále\s+jen\b"),
                          "zavedení zkratky přes „dále jen“ "

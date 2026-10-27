@@ -14,7 +14,7 @@ from .rodne_cislo import je_rodne_cislo
 from .typst import LADENI, cisty, do_typstu
 from .znacky import NBSP
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 
 __all__ = ["KANCELAR", "LADENI", "NBSP", "PROFILY", "UJC", "Profil",
            "cisty", "do_typstu", "je_rodne_cislo", "uprav", "zkontroluj",

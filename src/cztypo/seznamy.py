@@ -61,8 +61,15 @@ LATIN = ["modus operandi", "modu operandi", "modem operandi", "ultima ratio",
          "ratio decidendi", "ex offo", "ad hoc", "de lege lata"]
 
 # 7. Spisové značky, čísla jednací a čísla účtů se nesmí lámat.
+# rejstříky notářů (NZ notářské zápisy, N notářský rejstřík, Nz, Sd/Sdu soudní
+# komisař, EZ a EVZ evidence závětí a listin, U úschovy)
+NOTARSKE = r"(?:NZ|Nz|N|Sd|Sdu|EZ|EVZ|U)"
+
 IDENT_RE = re.compile(
     "(?:"
+    # NZ 384/2024, N 430/2024 (dvojice značek notářského zápisu drží spolu)
+    rf"(?<![\w/]){NOTARSKE}\s\d+/\d{{2,4}}(?:,\s{NOTARSKE}\s\d+/\d{{2,4}})*(?![\w/])"
+    "|"
     # ABCD-12345-67/TČ-2026-000089, PMS-PMR-012345/2025-4
     # (tečka na konci je konec věty, do bloku nepatří)
     rf"[{CZ_UPPER}]{{2,6}}-[\w./-]*\d(?:[\w./-]*[\w/-])?"

@@ -151,3 +151,20 @@ def test_kontrola_upraveneho_textu_je_cista():
               "v Písku, kde vybral 1 234 567 Kč, a to podle § 234 odst. 4 "
               "trestního zákoníku ve věci sp. zn. 12 Nt 345/2026.")
     assert zkontroluj(cisty(uprav(vzorek, KANCELAR)), KANCELAR) == []
+
+
+@pytest.mark.parametrize(("vstup", "box"), [
+    ("sp. zn. NZ 384/2024, N 430/2024 ze dne", "#box[NZ 384/2024, N 430/2024]"),
+    ("notářský zápis NZ 12/2026 ze dne", "#box[NZ 12/2026]"),
+    ("rejstřík N 15/2026 a Nz 7/2025", "#box[N 15/2026]"),
+    ("komisař Sd 5/2024", "#box[Sd 5/2024]"),
+])
+def test_notarske_spisove_znacky(vstup, box):
+    assert box in do_typstu(uprav(vstup, KANCELAR))
+
+
+def test_kancelar_hlasi_pomlcku_ve_vete():
+    n = zkontroluj("Dlužník o splátkách - došlo k dohodě - nevěděl.", KANCELAR)
+    assert any(x.startswith("pomlčka ve větě") for x in n)
+    n2 = zkontroluj("Je-li to tak, platí 15–20 % a Praha-Smíchov.", KANCELAR)
+    assert not any(x.startswith("pomlčka ve větě") for x in n2)

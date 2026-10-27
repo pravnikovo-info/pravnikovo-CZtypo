@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pravnikovo-CZtypo"
-version = "0.4.0"
+version = "0.4.1"
 description = "Česká typografie a sazba podání jako kód / Czech typography and legal typesetting as code (nbsp, case numbers, typst template, AI skill)"
 readme = "README.md"
 license = "MIT"

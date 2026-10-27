@@ -42,6 +42,7 @@ class Profil:
     # kontrola
     kontrola_dale_jen: bool = False  # hlásí zavedení zkratky „dále jen“
     kontrola_tel_email: bool = False  # hlásí zkratky „tel.“ a „e-mail“
+    kontrola_pomlcka: bool = False  # hlásí pomlčku ve větě (i „ - “): přeformulovat
 
     def s(self, **zmeny: object) -> Profil:
         """Vrátí kopii profilu se změněnými hodnotami."""
@@ -63,6 +64,7 @@ KANCELAR = Profil(
     tecky_na_mezeru=True,
     kontrola_dale_jen=True,
     kontrola_tel_email=True,
+    kontrola_pomlcka=True,
 )
 
 PROFILY = {"ujc": UJC, "kancelar": KANCELAR}

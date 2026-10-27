@@ -1,5 +1,15 @@
 # Změny / Changelog
 
+## 0.4.1 – 2026-10-27
+
+- **Česky:** spisové značky notářů se nelámou: „NZ 384/2024, N 430/2024“ je
+  jeden blok, stejně N, Nz, Sd, Sdu, EZ, EVZ, U (i citace sbírky
+  „N 222/83 SbNU“). Profil kanceláře nově hlásí pomlčku ve větě (i jako
+  „ - “), aby autor větu přeformuloval (volba `kontrola_pomlcka`).
+- **English:** notarial file numbers no longer break („NZ 384/2024,
+  N 430/2024“ is one unbreakable unit; also N, Nz, Sd, Sdu, EZ, EVZ, U). The
+  office profile reports dashes inside sentences (option `kontrola_pomlcka`).
+
 ## 0.4.0 – 2026-10-27
 
 - **Česky:** nový modul `interpunkce` (volba profilu `interpunkce`).
