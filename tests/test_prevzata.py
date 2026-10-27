@@ -107,3 +107,13 @@ def test_kontrola_respektuje_nevazane_spojky():
     profil = UJC.s(vazat_a_i=False)
     text = cisty(uprav("pes a kočka šla k domu a pak dál", profil))
     assert zkontroluj(text, profil) == []
+
+
+def test_krat_nemeni_citaci():
+    # doslovná citace (protokol, rozsudek) se nemění ani typograficky
+    assert "„asi 2x pohnul“" in u("svědkyně uvedla „asi 2x pohnul“ a dál")
+    assert f"10{NBSP}×{NBSP}20" in u("místnost 10x20 m, „cituji 3x“")
+
+
+def test_trojtecka_nemeni_citaci():
+    assert "„řekl jsem... nevím“" in u("uvedl „řekl jsem... nevím“ a odešel")

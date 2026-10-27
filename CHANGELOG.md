@@ -1,5 +1,12 @@
 # Změny / Changelog
 
+## 0.3.1 – 2026-10-27
+
+- **Česky:** znak krát a trojtečka se už nepoužijí uvnitř doslovné citace
+  („asi 2x pohnul“ zůstane), zjištěno při přesazbě skutečného podání.
+- **English:** the multiplication sign and ellipsis rules no longer touch
+  verbatim quotations („…“), found while re-typesetting a real filing.
+
 ## 0.3.0 – 2026-10-27
 
 **Česky**

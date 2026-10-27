@@ -172,18 +172,27 @@ def _zkratky_a_cisla(text: str, profil: Profil) -> str:
 def _prevzata(text: str, profil: Profil) -> str:
     """Uvozovky, trojtečka a znak krát (podle yetty/cstypo, MIT)."""
     if profil.trojtecka:
-        text = re.sub(r"(?<!\.)\.{3}(?!\.)", "…", text)
+        casti = re.split(r"(„[^“]*“)", text)
+        text = "".join(c if c.startswith("„")
+                       else re.sub(r"(?<!\.)\.{3}(?!\.)", "…", c)
+                       for c in casti)
     if profil.uvozovky:
         text = re.sub(r'(?<!["\w])"(?![ "])([^"\n]+?)(?<![ "])"(?!")',
                       "„\\1“", text)
         text = re.sub(r"(?<!['\w])'(?![ '])([^'\n]+?)(?<![ '])'(?![\w'])",
                       "‚\\1‘", text)
     if profil.krat:
-        cislo = r"\d+(?:,\d+)?"
-        text = re.sub(rf"(?<![\w.,])({cislo}) ?x ?({cislo})(?!\w)",
-                      f"\\1{NBSP}×{NBSP}\\2", text)
-        text = re.sub(r"(?<=\d)x(?=[ ,.]|$)", "×", text, flags=re.M)
+        # doslovná citace („…“) se nemění, ani „2x“ na „2×“
+        casti = re.split(r"(„[^“]*“)", text)
+        text = "".join(c if c.startswith("„") else _krat(c) for c in casti)
     return text
+
+
+def _krat(text: str) -> str:
+    cislo = r"\d+(?:,\d+)?"
+    text = re.sub(rf"(?<![\w.,])({cislo}) ?x ?({cislo})(?!\w)",
+                  f"\\1{NBSP}×{NBSP}\\2", text)
+    return re.sub(r"(?<=\d)x(?=[ ,.]|$)", "×", text, flags=re.M)
 
 
 def _nazev_cislo(text: str) -> str:
