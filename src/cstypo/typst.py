@@ -38,6 +38,10 @@ def do_typstu(text: str) -> str:
 
 def cisty(text: str) -> str:
     """Vrátí text bez řídicích značek (pro DOCX, e-mail, kontrolu)."""
+    # Prostý text nezná #box: mezery uvnitř bloku se změní na nezlomitelné,
+    # aby spisová značka držela pohromadě i v DOCX nebo na webu.
+    text = re.sub(rf"{BOX0}([^{BOX1}]*){BOX1}",
+                  lambda m: BOX0 + m.group(1).replace(" ", NBSP) + BOX1, text)
     for ch in (BOX0, BOX1, IT0, IT1):
         text = text.replace(ch, "")
     return re.sub(rf"{GAP0}([\d.]+){GAP1}", lambda m: " " * 12, text)

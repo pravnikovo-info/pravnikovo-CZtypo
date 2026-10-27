@@ -4,7 +4,7 @@ import dataclasses
 
 import pytest
 
-from cstypo import KANCELAR, NBSP, UJC, Profil, cisty, uprav, zkontroluj
+from cstypo import KANCELAR, NBSP, UJC, Profil, cisty, do_typstu, uprav, zkontroluj
 from cstypo.znacky import BOX0, BOX1, IT0
 
 
@@ -100,3 +100,17 @@ def test_upraveny_text_projde_kontrolou():
     vzorek = ("Obviněný a jeho syn jel s poškozenou dne 28. 7. 2026 do banky "
               "v Písku, kde vybral 1 234 567 Kč podle § 234 odst. 4.")
     assert zkontroluj(cisty(uprav(vzorek))) == []
+
+
+@pytest.mark.parametrize(("vstup", "ocekavano"), [
+    ("pod sp. zn. 28 C 140/2026 dne", f"28{NBSP}C{NBSP}140/2026 dne"),
+    ("nález I. ÚS 1234/25 a", f"I.{NBSP}ÚS{NBSP}1234/25 a"),
+])
+def test_prosty_text_drzi_spisovou_znacku(vstup, ocekavano):
+    # prostý text (DOCX, web) nezná #box, mezery uvnitř bloku jsou vlnky
+    assert ocekavano in cisty(uprav(vstup))
+
+
+def test_tecka_za_vetou_neni_v_bloku():
+    vystup = do_typstu(uprav("srov. č. j. ABCD-12345-67/TČ-2026-000089. Dále"))
+    assert "#box[ABCD-12345-67/TČ-2026-000089]" in vystup

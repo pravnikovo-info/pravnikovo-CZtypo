@@ -64,7 +64,8 @@ LATIN = ["modus operandi", "modu operandi", "modem operandi", "ultima ratio",
 IDENT_RE = re.compile(
     "(?:"
     # ABCD-12345-67/TČ-2026-000089, PMS-PMR-012345/2025-4
-    rf"[{CZ_UPPER}]{{2,6}}-[\w./-]*\d[\w./-]*"
+    # (tečka na konci je konec věty, do bloku nepatří)
+    rf"[{CZ_UPPER}]{{2,6}}-[\w./-]*\d(?:[\w./-]*[\w/-])?"
     # 12 Nt 345/2026-14, 4 Tdo 123/2025, 2 NZT 12/2026-41
     rf"|\d{{1,3}}\s[{CZ_UPPER}][A-Za-z{CZ_LOWER}{CZ_UPPER}]{{0,4}}\s\d+"
     r"/\d{2,4}(?:-\d+)?"

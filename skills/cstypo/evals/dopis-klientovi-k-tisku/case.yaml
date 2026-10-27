@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: dopis-klientovi-k-tisku
+expected_outcome: |
+  dopis.md je krátký český dopis s údaji ze zadání, připravený k tisku:
+  nezlomitelné mezery za jednopísmennými předložkami, v datu a u sp. zn.,
+  PSČ 14000 bez mezery.

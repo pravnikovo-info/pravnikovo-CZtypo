@@ -119,6 +119,29 @@ Navíc pro právní texty:
   rodným číslem; číslo posudku `032300/2026` zůstane. Volbami
   `psc_bez_mezery` a `rc_bez_lomitka` lze úpravu vypnout.
 
+## Skill pro AI asistenty (Claude, OpenAI Codex)
+
+Složka [`skills/cstypo`](skills/cstypo) je skill v otevřeném formátu
+[Agent Skills](https://agentskills.io) (`SKILL.md` + skripty). Asistent
+podle něj sám pozná, kdy českou typografii použít, a pravidla provede
+skriptem místo ručního vkládání mezer. Skill obsahuje vlastní kopii balíčku,
+takže nepotřebuje instalaci ani přístup k internetu, jen Python 3.10+.
+
+| Kde | Jak nainstalovat |
+|---|---|
+| Claude Code | `cp -r skills/cstypo ~/.claude/skills/` (nebo do `.claude/skills/` v projektu) |
+| Claude.ai, Claude Desktop | zabalit (níže) a nahrát v Nastavení → Capabilities → Skills; vyžaduje zapnuté spouštění kódu |
+| Claude API | nahrát složku přes Skills API |
+| OpenAI Codex | `cp -r skills/cstypo ~/.codex/skills/` |
+
+```bash
+cd skills && zip -r cstypo.zip cstypo -x 'cstypo/evals/*'
+```
+
+Ve složce `skills/cstypo/evals/` jsou testovací úlohy, na kterých se skill
+ověřuje (s ním a bez něj). Kopie balíčku ve skillu se aktualizuje příkazem
+`python3 tools/sync_skill.py`; CI hlídá, aby se nelišila od `src/`.
+
 ## cstypo, nebo typst balíček vlna?
 
 [vlna](https://typst.app/universe/package/vlna) ([iamanro/typst-vlna](https://github.com/iamanro/typst-vlna))

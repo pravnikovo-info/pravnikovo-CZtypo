@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: typst-telo-odvolani
+expected_outcome: |
+  telo.typ je typst markup textu z text.md, zkompiluje se, spisové značky
+  a č. j. jsou neoddělitelné a citace ustanovení drží pohromadě.
+context:
+  scaffold_script: place-files.sh

@@ -1,5 +1,14 @@
 # Změny
 
+## 0.2.0 – 2026-10-27
+
+- Skill pro AI asistenty (`skills/cstypo`, formát Agent Skills): Claude Code,
+  Claude.ai, Claude API, OpenAI Codex. Běží bez instalace; spouštěč umí
+  `--vlnky` (náhled nezlomitelných mezer jako `~`). Testovací úlohy v `evals/`.
+- Prostý text (`cisty`): mezery uvnitř spisových značek a čísel jednacích jsou
+  nezlomitelné, značka drží pohromadě i v DOCX nebo na webu.
+- Tečka za větou už nepadá do bloku čísla jednacího.
+
 ## 0.1.0 – 2026-10-27
 
 První veřejná verze.
