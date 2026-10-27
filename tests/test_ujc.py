@@ -4,8 +4,8 @@ import dataclasses
 
 import pytest
 
-from cstypo import KANCELAR, NBSP, UJC, Profil, cisty, do_typstu, uprav, zkontroluj
-from cstypo.znacky import BOX0, BOX1, IT0
+from cztypo import KANCELAR, NBSP, UJC, Profil, cisty, do_typstu, uprav, zkontroluj
+from cztypo.znacky import BOX0, BOX1, IT0
 
 
 @pytest.mark.parametrize(("vstup", "ocekavano"), [
@@ -22,7 +22,7 @@ from cstypo.znacky import BOX0, BOX1, IT0
     # č. j. na začátku věty se nemění
     ("Č. j. uvedené výše", "Č."),
     # PSČ a rodné číslo
-    ("bytem Dlouhá 1, 110 00 Praha 1", "11000 Praha 1"),
+    ("bytem Dlouhá 1, 110 00 Praha 1", f"11000 Praha{NBSP}1"),
     ("rodné číslo 010231/0010", "0102310010"),
     ("IČ: 12345678", "IČO: 12345678"),
     ("IČ DPH SK2020123456", "IČ DPH SK2020123456"),

@@ -3,14 +3,14 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pravnikovo-cstypo"
-version = "0.2.0"
-description = "Česká typografická pravidla jako kód: nezlomitelné mezery, zápis údajů, výstup pro typst"
+name = "pravnikovo-CZtypo"
+version = "0.3.0"
+description = "Česká typografie a sazba podání jako kód / Czech typography and legal typesetting as code (nbsp, case numbers, typst template, AI skill)"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [{name = "pravnikovo.info"}]
-keywords = ["czech", "typography", "typst", "nbsp", "vlna", "čeština", "typografie", "právní"]
+keywords = ["czech", "typography", "typst", "nbsp", "legal", "law", "agent-skills", "čeština", "typografie", "sazba", "právní"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
@@ -23,12 +23,12 @@ dependencies = []
 dev = ["pytest>=7", "ruff>=0.5"]
 
 [project.scripts]
-cstypo = "cstypo.cli:main"
+cztypo = "cztypo.cli:main"
 
 [project.urls]
-Repository = "https://github.com/pravnikovo-info/cstypo"
-Changelog = "https://github.com/pravnikovo-info/cstypo/blob/main/CHANGELOG.md"
-Issues = "https://github.com/pravnikovo-info/cstypo/issues"
+Repository = "https://github.com/pravnikovo-info/pravnikovo-CZtypo"
+Changelog = "https://github.com/pravnikovo-info/pravnikovo-CZtypo/blob/main/CHANGELOG.md"
+Issues = "https://github.com/pravnikovo-info/pravnikovo-CZtypo/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

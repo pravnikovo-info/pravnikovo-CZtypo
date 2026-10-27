@@ -20,3 +20,12 @@ jobs:
       - run: ruff check .
       - run: pytest -q
       - run: python tools/sync_skill.py --check
+      - uses: typst-community/setup-typst@v4
+        with:
+          typst-version: "0.15.1"
+      - name: typst šablona / typst template
+        run: |
+          python tools/priklad.py && git diff --exit-code typst/priklad/telo.typ
+          typst compile --root typst typst/priklad/podani.typ /tmp/vzor.pdf
+          typst compile --root typst --input identita=argumentum --input pisma=volna typst/priklad/podani.typ /tmp/arg.pdf
+          for f in typst/test/*.typ; do typst compile --root typst "$f" /tmp/test.pdf; done

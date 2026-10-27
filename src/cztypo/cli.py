@@ -1,4 +1,4 @@
-"""Příkazová řádka: cstypo [--profil P] [--check | --typst [--ladit]] [soubor ...]"""
+"""Příkazová řádka: cztypo [--profil P] [--check | --typst [--ladit]] [soubor ...]"""
 
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ def _cti(cesta: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        prog="cstypo",
+        prog="cztypo",
         description="Česká typografie: nezlomitelné mezery a zápis údajů.")
     ap.add_argument("soubory", nargs="*", default=["-"],
                     help="vstupní soubory (výchozí stdin)")
@@ -42,7 +42,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         texty = [(c, _cti(c)) for c in a.soubory]
     except OSError as e:
-        print(f"cstypo: {e}", file=sys.stderr)
+        print(f"cztypo: {e}", file=sys.stderr)
         return 2
     if a.check:
         return _kontrola(texty, profil)

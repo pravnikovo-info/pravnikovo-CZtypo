@@ -3,8 +3,8 @@ import subprocess
 
 import pytest
 
-from cstypo import LADENI, NBSP, do_typstu, uprav
-from cstypo.cli import main
+from cztypo import LADENI, NBSP, do_typstu, uprav
+from cztypo.cli import main
 
 
 def test_cli_uprav(tmp_path, capsys):
@@ -48,7 +48,7 @@ def test_vystup_se_zkompiluje(tmp_path):
             "Za VZOREK s.r.o. jedná Mgr. Jan Dvořák, Ph.D., tel. 777 000 000, "
             "e-mail info@example.com, v letech 1948–1989, „de facto“ ........\n"
             "18. října 2026 podle o. s. ř. a zákona č. 89/2012 Sb.")
-    from cstypo import KANCELAR, UJC
+    from cztypo import KANCELAR, UJC
     for i, p in enumerate((UJC, KANCELAR)):
         src = tmp_path / f"t{i}.typ"
         src.write_text('#set text(lang: "cs")\n' + LADENI

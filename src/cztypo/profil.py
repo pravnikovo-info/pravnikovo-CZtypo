@@ -31,6 +31,13 @@ class Profil:
     kurziva_latiny: bool = True  # de facto, ad hoc ... kurzívou
     cj_vzdy_malym: bool = False  # Č. j. -> č. j. i na začátku věty
     tecky_na_mezeru: bool = False  # ........ (místo pro doplnění) -> mezera
+    # převzato z yetty/cstypo a wilx/cstypo (MIT, viz NOTICE.md)
+    uvozovky: bool = True  # "text" -> „text“, 'text' -> ‚text‘
+    trojtecka: bool = True  # ... -> …
+    krat: bool = True  # 10x20 -> 10 × 20, 3x -> 3×
+    posledni_slovo: bool = True  # krátké poslední slovo odstavce drží u předchozího
+    vazat_a_i: bool = True  # váže i spojky „a“ a „i“ (ÚJČ doporučuje)
+    nazev_cislo: bool = True  # Praha 1, Dlouhá 12
     # kontrola
     kontrola_dale_jen: bool = False  # hlásí zavedení zkratky „dále jen“
     kontrola_tel_email: bool = False  # hlásí zkratky „tel.“ a „e-mail“

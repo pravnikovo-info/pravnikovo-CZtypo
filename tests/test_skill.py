@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 
 KOREN = Path(__file__).resolve().parent.parent
-SKILL = KOREN / "skills" / "cstypo"
-SPOUSTEC = SKILL / "scripts" / "cstypo_cli.py"
+SKILL = KOREN / "skills" / "pravnikovo-cztypo"
+SPOUSTEC = SKILL / "scripts" / "cztypo_cli.py"
 
 
 def spust(*args: str, vstup: str) -> subprocess.CompletedProcess[str]:
@@ -20,7 +20,7 @@ def spust(*args: str, vstup: str) -> subprocess.CompletedProcess[str]:
 
 def test_skill_ma_frontmatter() -> None:
     text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
-    assert text.startswith("---\nname: cstypo\n")
+    assert text.startswith("---\nname: pravnikovo-cztypo\n")
     assert "\ndescription:" in text.split("\n---\n", 1)[0]
 
 

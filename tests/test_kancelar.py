@@ -5,8 +5,8 @@ Všechna jména, firmy, čísla a značky jsou smyšlené.
 
 import pytest
 
-from cstypo import KANCELAR, NBSP, cisty, do_typstu, uprav, zkontroluj
-from cstypo.znacky import BOX0, BOX1
+from cztypo import KANCELAR, NBSP, cisty, do_typstu, uprav, zkontroluj
+from cztypo.znacky import BOX0, BOX1
 
 TESTY = [
     # jednoznakové předložky a spojky
@@ -17,7 +17,7 @@ TESTY = [
     ("bez ohledu o tom", f"ohledu o{NBSP}tom"),
     ("A to i přes výzvu", f"i{NBSP}přes"),
     # zápis údajů
-    ("bytem Dlouhá 1, 110 00 Praha 1", "11000 Praha 1"),
+    ("bytem Dlouhá 1, 110 00 Praha 1", f"11000 Praha{NBSP}1"),
     ("celková škoda 1 234 567 Kč", "1.234.567"),
     # 31. února: tvarově platné rodné číslo, které nemůže patřit nikomu
     ("rodné číslo 010231/0010", "0102310010"),

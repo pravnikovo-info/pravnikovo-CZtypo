@@ -21,8 +21,10 @@ class Nalez:
 
 
 def _nalezy(profil: Profil) -> list[Nalez]:
+    pismena = (JEDNOZNAKOVE if profil.vazat_a_i
+               else JEDNOZNAKOVE.translate(str.maketrans("", "", "aiAI")))
     out = [
-        Nalez(re.compile(rf"(?<![^\s„(\[])[{JEDNOZNAKOVE}] (?=\S)"),
+        Nalez(re.compile(rf"(?<![^\s„(\[])[{pismena}] (?=\S)"),
               "jednoznaková předložka nebo spojka s obyčejnou mezerou"),
         Nalez(re.compile(r"[…]{2,}|\.{5,}"),
               "řada teček jako místo pro doplnění"),

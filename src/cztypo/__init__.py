@@ -1,6 +1,6 @@
 """Česká typografická pravidla jako deterministická funkce.
 
-    >>> from cstypo import uprav, cisty
+    >>> from cztypo import uprav, cisty
     >>> cisty(uprav("jel s kolegou do Brna"))
     'jel s\\xa0kolegou do Brna'
 """
@@ -14,7 +14,7 @@ from .rodne_cislo import je_rodne_cislo
 from .typst import LADENI, cisty, do_typstu
 from .znacky import NBSP
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 __all__ = ["KANCELAR", "LADENI", "NBSP", "PROFILY", "UJC", "Profil",
            "cisty", "do_typstu", "je_rodne_cislo", "uprav", "zkontroluj",
