@@ -38,6 +38,7 @@ class Profil:
     posledni_slovo: bool = True  # krátké poslední slovo odstavce drží u předchozího
     vazat_a_i: bool = True  # váže i spojky „a“ a „i“ (ÚJČ doporučuje)
     nazev_cislo: bool = True  # Praha 1, Dlouhá 12
+    interpunkce: bool = True  # ( ČR ) -> (ČR), apod.. -> apod.; kontrola mezer, pomlček
     # kontrola
     kontrola_dale_jen: bool = False  # hlásí zavedení zkratky „dále jen“
     kontrola_tel_email: bool = False  # hlásí zkratky „tel.“ a „e-mail“

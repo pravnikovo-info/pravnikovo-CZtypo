@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import re
 
+from .interpunkce import uprav_interpunkci
 from .profil import UJC, Profil
 from .rodne_cislo import je_rodne_cislo
 from .seznamy import (
@@ -226,6 +227,8 @@ def uprav(text: str, profil: Profil = UJC) -> str:
     """Aplikuje pravidla profilu. Vrací text s řídicími značkami."""
     stash: list[str] = []
     text = _odloz(text, profil, stash)
+    if profil.interpunkce:
+        text = uprav_interpunkci(text)
     text = _prevzata(text, profil)
     text = _udaje(text, profil)
     text = _kurziva_a_tisice(text, profil)

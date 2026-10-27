@@ -1,5 +1,26 @@
 # Změny / Changelog
 
+## 0.4.0 – 2026-10-27
+
+- **Česky:** nový modul `interpunkce` (volba profilu `interpunkce`).
+  Opravuje: uvozovky psané jako dvě čárky („,,text“), mezery uvnitř kulatých
+  závorek a před interpunkcí, zdvojenou tečku za zkratkou („apod..“),
+  „cca.“, nelámání dvojtečky v poměru „2 : 3“. Hlásí: datum bez mezer,
+  chybějící mezeru za čárkou, pomlčku bez mezery, rozsah čísel s mezerami
+  („15 – 20“), „ -li“, spojovník s mezerami (ne v profilu kanceláře),
+  „viz.“, „tzv. „…““, titul za jménem bez čárky, kumulaci interpunkce,
+  znak minus a lomítko s mezerami. Pravidla podle IJP ÚJČ; seznam doplněn
+  podle přehledu nejčastějších chyb v odborných textech. Ověřeno na 60
+  skutečných textech: žádná nechtěná změna.
+- **English:** new `interpunkce` module (profile option `interpunkce`). It
+  fixes double-comma quotes, spaces inside parentheses and before
+  punctuation, doubled full stops after abbreviations, „cca.“ and keeps
+  ratios „2 : 3“ unbroken. It reports dates without spaces, missing spaces
+  after commas, dash spacing, spaced numeric ranges, „ -li“, spaced hyphens
+  (not in the office profile), „viz.“, „tzv. „…““, post-nominal titles
+  without a comma, stacked punctuation, minus signs and spaced slashes.
+  Checked on 60 real documents with no unwanted changes.
+
 ## 0.3.1 – 2026-10-27
 
 - **Česky:** znak krát a trojtečka se už nepoužijí uvnitř doslovné citace

@@ -5,10 +5,13 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
+from .interpunkce import nalezy_interpunkce
 from .profil import UJC, Profil
 from .rodne_cislo import je_rodne_cislo
-from .seznamy import JEDNOZNAKOVE, TEL_CZ_RE, TEL_INTL_RE, ZKRATKY
+from .seznamy import JEDNOZNAKOVE, MAIL_RE, TEL_CZ_RE, TEL_INTL_RE, ZKRATKY
 from .znacky import CZ_UPPER, NBSP
+
+URL_RE = re.compile(r"(?:https?://|www\.)\S+")
 
 
 @dataclass(frozen=True)
@@ -18,6 +21,7 @@ class Nalez:
     jen_proza: bool = False  # v typst zdroji se nekontroluje (syntaxe)
     mimo_citace: bool = False  # v „citaci“ se ponechává originál
     mimo_telefony: bool = False  # telefonní číslo není číslo s tisíci
+    mimo_adres: bool = False  # e-mail a webová adresa mají vlastní zápis
 
 
 def _nalezy(profil: Profil) -> list[Nalez]:
@@ -74,6 +78,10 @@ def _nalezy(profil: Profil) -> list[Nalez]:
     if profil.kontrola_tel_email:
         out.append(Nalez(re.compile(r"\btel\.|\be-mail\b"),
                          "zkratka „tel.“ nebo „e-mail“"))
+    if profil.interpunkce:
+        out += [Nalez(n.vzor, n.popis, jen_proza=True, mimo_citace=not n.i_v_citaci,
+                      mimo_adres=True)
+                for n in nalezy_interpunkce(profil.pomlcky_na_spojovnik)]
     if profil.kontrola_dale_jen:
         out.append(Nalez(re.compile(r"\bdále\s+jen\b"),
                          "zavedení zkratky přes „dále jen“ "
@@ -107,6 +115,8 @@ def zkontroluj(text: str, profil: Profil = UJC) -> list[str]:
         zdroj = maskovany if n.mimo_citace else text
         if n.mimo_telefony:
             zdroj = _maskuj(TEL_CZ_RE, _maskuj(TEL_INTL_RE, zdroj))
+        if n.mimo_adres:
+            zdroj = _maskuj(URL_RE, _maskuj(MAIL_RE, zdroj))
         for m in n.vzor.finditer(zdroj):
             if (n.popis.startswith("rodné číslo")
                     and not je_rodne_cislo(*m.group(0).split("/"))):

@@ -129,7 +129,11 @@ a ČSN 01 6910:
 - číslo a jednotka (`50 %`, `1 000 Kč`, `89/2012 Sb.`), datum, iniciály,
   tituly před jménem i za ním, zkratky, „Praha 1“;
 - české uvozovky, trojtečka, znak krát, krátké poslední slovo odstavce;
-- slova se spojovníkem se nedělí na spojovníku (`Je-li`).
+- slova se spojovníkem se nedělí na spojovníku (`Je-li`);
+- mezery a interpunkce: opraví `,,uvozovky“`, `( ČR )`, `apod..`, `cca.`
+  a mezeru před čárkou; nahlásí datum bez mezer, `viz.`, `tzv. „…“`, mezery
+  u pomlčky a spojovníku, rozsah `15 – 20`, titul za jménem bez čárky aj.
+  (volba `interpunkce`).
 
 Pro právní texty navíc:
 
@@ -233,7 +237,10 @@ Following the Czech Language Institute guide (ÚJČ AV ČR) and ČSN 01 6910:
 non-breaking spaces after one-letter prepositions and conjunctions, in dates,
 between numbers and units, after titles and abbreviations; Czech quotation
 marks, ellipsis, multiplication sign; a short last word of a paragraph kept
-with the previous one. For legal texts: unbreakable case numbers, reference
+with the previous one; spacing and punctuation fixes (double-comma quotes,
+spaces inside parentheses, doubled full stops) and checks (dates without
+spaces, dash and hyphen spacing, „viz.“, titles without a comma, etc.).
+For legal texts: unbreakable case numbers, reference
 numbers and Constitutional Court citations, whole statutory citations
 (`§ 234 odst. 4 písm. a)`) kept together, statute abbreviations, company
 names exactly as registered. Postal codes are written without a space, birth
